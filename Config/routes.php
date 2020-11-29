@@ -1,0 +1,33 @@
+<?php
+use Library\Route;
+return  array(
+    // site routes
+    'default' => new Route('/', 'SiteController', 'index'),
+    'index' => new Route('/index.php', 'SiteController', 'index'),
+    'books_list' => new Route('/books', 'BookController', 'index'),
+    'book_page' => new Route('/book-{id}\.html', 'BookController', 'show', array('id' => '[0-9]+') ),
+    'book2_page' => new Route('/book2-{id}\.html', 'BookController', 'ajax', array('id' => '[0-9]+') ),    
+    'contact_us' => new Route('/contact-us', 'SiteController', 'contact'),
+    'login' => new Route('/login', 'SecurityController', 'login'),
+    'logout' => new Route('/logout', 'SecurityController', 'logout'),
+    'register' => new Route('/register', 'SecurityController', 'register'),
+    'admin_default' => new Route('/admin', 'Admin\DefaultController', 'index'),
+    'admin_books' => new Route('/admin/books', 'Admin\BookController', 'index'),
+    'admin_book_add' => new Route('/admin/book/new', 'Admin\BookController', 'save'),
+    'admin_books_delete' => new Route('/admin/book/delete/{id}', 'Admin\BookController', 'delete', array('id' => '[0-9]+')),
+    'admin_cart_order_list' => new Route('/admin/cart-order-list', 'Admin\CartController', 'index'),
+    'admin_cart_order_id' => new Route('/admin/cart-order-show-{id}', 'Admin\CartController', 'show', array('id' => '[0-9]+')),
+    'admin_cart_order_delete' => new Route('/admin/cart-order-delete-{id}', 'Admin\CartController', 'delete', array('id' => '[0-9]+')),
+    'admin_cart_order_accept' => new Route('/admin/cart-order-accept-{id}', 'Admin\CartController', 'accept', array('id' => '[0-9]+')),                  
+    'admin_feedback_list' => new Route('/admin/feedback-list', 'Admin\DefaultController', 'contact'),
+    'admin_feedback_id' => new Route('/admin/feedback-show-{id}', 'Admin\DefaultController', 'show', array('id' => '[0-9]+')),    
+    'comment_delete' => new Route('/comdelete-{id}', 'CommentController', 'delete', array('id' => '[0-9]+')),
+    'comment_edit' => new Route('/comedit', 'CommentController', 'edit'),
+    'cart_book_add' => new Route('/cart-{id}', 'CartController', 'add', array('id' => '[0-9]+')),
+    'cart_show' => new Route('/cart', 'CartController', 'show'),
+    'cart_book_amount_-' => new Route('/cart-count-minus-{id}', 'CartController', 'amountMinus', array('id' => '[0-9]+')),
+    'cart_book_amount_+' => new Route('/cart-count-plus-{id}' , 'CartController', 'amountPlus' , array('id' => '[0-9]+')),        
+    'cart_book_delete' => new Route('/cart-delete-{id}', 'CartController', 'bookDelete', array('id' => '[0-9]+')),
+    'cart_clear' => new Route('/cart-clear', 'CartController', 'delete'),
+    'cart_order' => new Route('/cart-order', 'CartController', 'order'),
+ ); 

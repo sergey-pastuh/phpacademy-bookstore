@@ -1,0 +1,1 @@
+<h2 style="text-align: center;">It's good to see you back, <?=$_COOKIE['user']?></h2>
